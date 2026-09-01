@@ -3,6 +3,11 @@ import "./App.css";
 
 function App() {
   const [showCertificates, setShowCertificates] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <div className="portfolio">
@@ -13,13 +18,23 @@ function App() {
           MYSHA<span>.</span>
         </div>
 
-        <div className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#certifications">Certificates</a>
-          <a href="#contact">Contact</a>
+        <button
+          className={`menu-toggle ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <a href="#home" onClick={closeMenu}>Home</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#skills" onClick={closeMenu}>Skills</a>
+          <a href="#projects" onClick={closeMenu}>Projects</a>
+          <a href="#certifications" onClick={closeMenu}>Certificates</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
         </div>
       </nav>
 
@@ -195,7 +210,6 @@ function App() {
 
         <div className="projects-grid">
 
-          {/* Project 1 */}
           <article className="project-card">
             <div className="project-top">
               <span className="project-number">01</span>
@@ -224,7 +238,6 @@ function App() {
           </article>
 
 
-          {/* Project 2 */}
           <article className="project-card">
             <div className="project-top">
               <span className="project-number">02</span>
@@ -253,7 +266,6 @@ function App() {
           </article>
 
 
-          {/* Project 3 */}
           <article className="project-card">
             <div className="project-top">
               <span className="project-number">03</span>
@@ -281,7 +293,6 @@ function App() {
           </article>
 
 
-          {/* Project 4 */}
           <article className="project-card">
             <div className="project-top">
               <span className="project-number">04</span>
@@ -326,7 +337,6 @@ function App() {
 
         <div className="certifications-grid">
 
-          {/* Java Full Stack Certificates */}
           <div className="certification-card">
 
             <div className="certification-top">
@@ -404,7 +414,6 @@ function App() {
           </div>
 
 
-          {/* IBM Certificate */}
           <div className="certification-card">
 
             <div className="certification-top">

@@ -1090,19 +1090,311 @@
   }
 }
 
+/* ================================
+   MOBILE NAVIGATION
+================================ */
+
+.menu-toggle {
+  display: none;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+
+    padding-top: 140px;
+  }
+
+  .hero-visual {
+    min-height: 380px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .contact-card {
+    max-width: 100%;
+  }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 750px) {
+
+  .navbar {
+    height: 76px;
+    min-height: 76px;
+
+    padding: 0 20px;
+
+    background: rgba(9, 9, 11, 0.96);
+  }
+
+  .menu-toggle {
+    display: flex;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    border: 1px solid #27272a;
+    border-radius: 8px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+  }
+
+  .menu-toggle span {
+    display: block;
+
+    width: 20px;
+    height: 2px;
+
+    background: #e4e4e7;
+
+    border-radius: 2px;
+
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  /* Hamburger animation */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 76px;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+
+    padding: 8px 20px 20px;
+
+    box-sizing: border-box;
+
+    background: rgba(9, 9, 11, 0.98);
+
+    border-bottom: 1px solid #27272a;
+
+    transform: translateY(-20px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    display: block;
+
+    padding: 15px 0;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #18181b;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+
+    padding: 130px 20px 80px;
+
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+    letter-spacing: -3px;
+  }
+
+  .hero h2 {
+    font-size: 25px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-visual {
+    min-height: 330px;
+  }
+
+  .glow-circle {
+    width: 260px;
+    height: 260px;
+  }
+
+  .profile-card {
+    width: 100%;
+  }
+
+  .terminal-content {
+    padding: 25px;
+  }
+
+  .about {
+    padding: 65px 20px 35px;
+  }
+
+  .skills-section,
+  .projects-section {
+    padding: 45px 20px 65px;
+  }
+
+  .certifications-section {
+    padding: 65px 20px;
+  }
+
+  .contact-section {
+    padding: 70px 20px 90px;
+  }
+
+  .section-heading h2 {
+    font-size: 38px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: auto;
+    padding: 25px;
+  }
+
+  .project-top {
+    margin-bottom: 35px;
+  }
+
+  .project-card h3 {
+    font-size: 23px;
+  }
+
+  .certification-card {
+    padding: 25px;
+  }
+
+  .certification-top {
+    margin-bottom: 32px;
+  }
+
+  .certification-card h3 {
+    font-size: 23px;
+  }
+
+  .contact-content p {
+    font-size: 15px;
+  }
+
+  .contact-card {
+    padding: 25px;
+  }
+
+  .contact-item a {
+    font-size: 14px;
+    word-break: break-word;
+  }
+
+  .footer {
+    padding: 25px 20px;
+  }
+
+  .view-certificates-btn {
+    width: 100%;
+  }
+}
+
 
 /* ================================
    SMALL MOBILE
 ================================ */
 
 @media (max-width: 450px) {
-  .nav-links {
-    gap: 9px;
-  }
-
-  .nav-links a {
-    font-size: 11px;
-  }
 
   .logo {
     font-size: 18px;
@@ -1110,5 +1402,9 @@
 
   .hero h1 {
     font-size: 48px;
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
   }
 }
