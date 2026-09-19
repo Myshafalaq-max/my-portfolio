@@ -352,7 +352,7 @@ function App() {
 
             <p className="certification-description">
               Completed training across Java, web development, SQL,
-              React and Linux as part of my full stack development
+              ReactJS, Linux and AWS as part of my full stack development
               learning journey.
             </p>
 
@@ -362,7 +362,7 @@ function App() {
             >
               {showCertificates
                 ? "Hide Certificates ↑"
-                : "View Certificates (5) →"}
+                : "View Certificates (6) →"}
             </button>
 
             {showCertificates && (
@@ -408,6 +408,13 @@ function App() {
                   Linux Certificate →
                 </a>
 
+                <a
+                   href="/Certificates/AWS_certificate.pdf"
+                  target="_blank"
+                   rel="noreferrer"
+                  >
+                  AWS Certificate →
+                </a>
               </div>
             )}
 
