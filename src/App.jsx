@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./App.css";
 
@@ -11,7 +12,6 @@ function App() {
 
   return (
     <div className="portfolio">
-
       {/* Navbar */}
       <nav className="navbar">
         <div className="logo">
@@ -40,7 +40,6 @@ function App() {
 
       {/* Hero Section */}
       <section id="home" className="hero">
-
         <div className="hero-content">
           <p className="hero-label">SOFTWARE DEVELOPER</p>
 
@@ -99,13 +98,10 @@ function App() {
             </div>
           </div>
         </div>
-
       </section>
-
 
       {/* About Section */}
       <section id="about" className="about">
-
         <div className="section-heading">
           <p>01 / ABOUT</p>
 
@@ -127,13 +123,10 @@ function App() {
             software development and emerging engineering domains.
           </p>
         </div>
-
       </section>
-
 
       {/* Skills Section */}
       <section id="skills" className="skills-section">
-
         <div className="section-heading">
           <p>02 / SKILLS</p>
 
@@ -143,7 +136,6 @@ function App() {
         </div>
 
         <div className="skills-grid">
-
           <div className="skill-card">
             <span className="skill-number">01</span>
             <h3>Java</h3>
@@ -191,15 +183,11 @@ function App() {
             <h3>AI & IoT</h3>
             <p>Python, YOLO, OpenCV, ESP32 and IoT-based solutions.</p>
           </div>
-
         </div>
-
       </section>
-
 
       {/* Projects Section */}
       <section id="projects" className="projects-section">
-
         <div className="section-heading">
           <p>03 / PROJECTS</p>
 
@@ -209,7 +197,6 @@ function App() {
         </div>
 
         <div className="projects-grid">
-
           <article className="project-card">
             <div className="project-top">
               <span className="project-number">01</span>
@@ -236,7 +223,6 @@ function App() {
               <span>JWT</span>
             </div>
           </article>
-
 
           <article className="project-card">
             <div className="project-top">
@@ -265,7 +251,6 @@ function App() {
             </div>
           </article>
 
-
           <article className="project-card">
             <div className="project-top">
               <span className="project-number">03</span>
@@ -292,7 +277,6 @@ function App() {
             </div>
           </article>
 
-
           <article className="project-card">
             <div className="project-top">
               <span className="project-number">04</span>
@@ -318,15 +302,11 @@ function App() {
               <span>IoT</span>
             </div>
           </article>
-
         </div>
-
       </section>
-
 
       {/* Certifications Section */}
       <section id="certifications" className="certifications-section">
-
         <div className="section-heading">
           <p>04 / CERTIFICATIONS</p>
 
@@ -335,10 +315,11 @@ function App() {
           </h2>
         </div>
 
+        {/* All four cards must stay inside this grid */}
         <div className="certifications-grid">
 
+          {/* Certificate 01: Besant Technologies */}
           <div className="certification-card">
-
             <div className="certification-top">
               <span className="certification-number">01</span>
               <span className="certification-type">TRAINING</span>
@@ -367,7 +348,6 @@ function App() {
 
             {showCertificates && (
               <div className="certificate-list">
-
                 <a
                   href="/Certificates/Java_certificate.pdf"
                   target="_blank"
@@ -409,20 +389,18 @@ function App() {
                 </a>
 
                 <a
-                   href="/Certificates/AWS_certificate.pdf"
+                  href="/Certificates/AWS_certificate.pdf"
                   target="_blank"
-                   rel="noreferrer"
-                  >
+                  rel="noreferrer"
+                >
                   AWS Certificate →
                 </a>
               </div>
             )}
-
           </div>
 
-
+          {/* Certificate 02: IBM */}
           <div className="certification-card">
-
             <div className="certification-top">
               <span className="certification-number">02</span>
               <span className="certification-type">CERTIFICATE</span>
@@ -447,17 +425,81 @@ function App() {
             >
               View Certificate →
             </a>
+          </div>
 
+          {/* Certificate 03: Oracle */}
+          <div className="certification-card">
+            <div className="certification-top">
+              <span className="certification-number">03</span>
+              <span className="certification-type">CERTIFICATIONS</span>
+            </div>
+
+            <h3>Oracle Cloud Certifications</h3>
+
+            <p className="certification-provider">
+              Oracle
+            </p>
+
+            <p className="certification-description">
+              Certified in Oracle Cloud Infrastructure fundamentals
+              and AI foundations, covering cloud computing and
+              foundational artificial intelligence concepts.
+            </p>
+
+            <div className="certificate-list">
+              <a
+                href="/Certificates/oracle-cloud-foundations.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="view-certificates-btn"
+              >
+                View OCI Foundations Certificate →
+              </a>
+
+              <a
+                href="/Certificates/oracle-ai-foundations.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="view-certificates-btn"
+              >
+                View OCI AI Foundations Certificate →
+              </a>
+            </div>
+          </div>
+
+          {/* Certificate 04: HPE */}
+          <div className="certification-card">
+            <div className="certification-top">
+              <span className="certification-number">04</span>
+              <span className="certification-type">JOB SIMULATION</span>
+            </div>
+
+            <h3>Software Engineering Job Simulation</h3>
+
+            <p className="certification-provider">
+              Hewlett Packard Enterprise (HPE)
+            </p>
+
+            <p className="certification-description">
+              Completed a practical software engineering simulation
+              focused on backend development and software engineering tasks.
+            </p>
+
+            <a
+              href="/Certificates/hpe-software-engineering.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="view-certificates-btn"
+            >
+              View Certificate →
+            </a>
           </div>
 
         </div>
-
       </section>
-
 
       {/* Contact Section */}
       <section id="contact" className="contact-section">
-
         <div className="section-heading">
           <p>05 / CONTACT</p>
 
@@ -467,14 +509,12 @@ function App() {
         </div>
 
         <div className="contact-content">
-
           <p>
             I'm currently open to entry-level opportunities in Java,
             full-stack development and software engineering.
           </p>
 
           <div className="contact-card">
-
             <p className="contact-card-label">
               GET IN TOUCH
             </p>
@@ -510,19 +550,14 @@ function App() {
                 LinkedIn →
               </a>
             </div>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* Footer */}
       <footer className="footer">
         © 2026 Mysha Falaq.E · Built with React
       </footer>
-
     </div>
   );
 }
