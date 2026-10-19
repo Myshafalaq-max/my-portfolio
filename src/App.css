@@ -17,7 +17,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-
 /* ================================
    NAVBAR
 ================================ */
@@ -71,7 +70,6 @@
 .menu-toggle {
   display: none;
 }
-
 
 /* ================================
    HERO
@@ -131,7 +129,6 @@
   line-height: 1.8;
 }
 
-
 /* ================================
    HERO BUTTONS
 ================================ */
@@ -179,7 +176,6 @@
   transform: translateY(-2px);
 }
 
-
 /* ================================
    HERO VISUAL
 ================================ */
@@ -214,7 +210,6 @@
     opacity: 1;
   }
 }
-
 
 /* ================================
    TERMINAL CARD
@@ -292,7 +287,6 @@
   color: #a855f7;
 }
 
-
 /* ================================
    SECTION HEADING
 ================================ */
@@ -318,7 +312,6 @@
   color: #a855f7;
 }
 
-
 /* ================================
    ABOUT
 ================================ */
@@ -329,82 +322,168 @@
   padding: 80px 32px;
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
-  gap: 70px;
+  gap: 45px;
   border-top: 1px solid #18181b;
+  align-items: start;
 }
 
-.about-content {
-  max-width: 650px;
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
 }
 
-.about-content p {
-  margin: 0 0 18px;
+.about-intro .section-heading {
+  margin: 0;
+  padding: 0;
+}
+
+.about-intro .section-heading p {
+  margin-bottom: 12px;
+}
+
+.about-intro .about-photo {
+  margin: 0 0 0 24px;
+  padding: 14px;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+  background: #0f0f12;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.about-intro .about-photo:hover {
+  border-color: #a855f7;
+}
+
+.about-intro .about-photo img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.about-card {
+  padding: 26px 28px;
+  background: #111114;
+  border: 1px solid #27272a;
+  border-radius: 10px;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about-card:hover {
+  border-color: #a855f7;
+  transform: translateY(-3px);
+}
+
+.about-card h3 {
+  margin: 0 0 14px;
+  color: #c084fc;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.about-card p {
+  margin: 0;
   color: #a1a1aa;
-  font-size: 17px;
-  line-height: 1.9;
+  font-size: 15px;
+  line-height: 1.8;
 }
-
 
 /* ================================
    SKILLS
 ================================ */
 
+
+/* SKILLS SECTION */
+
 .skills-section {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 32px;
-  border-top: 1px solid #18181b;
+  box-sizing: border-box;
 }
-
-.skills-section .section-heading {
-  margin-bottom: 40px;
-}
-
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
+  margin-top: 40px;
 }
 
 .skill-card {
-  min-height: 190px;
+  position: relative;
+  min-width: 0;
   padding: 28px;
-  box-sizing: border-box;
   background: #111114;
-  border: 1px solid #27272a;
-  border-radius: 10px;
+  border: 1px solid #29292f;
+  border-radius: 16px;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    background 0.3s ease;
 }
 
 .skill-card:hover {
-  transform: translateY(-6px);
-  border-color: #a855f7;
-  box-shadow: 0 15px 40px rgba(168, 85, 247, 0.12);
+  transform: translateY(-5px);
+  border-color: #8b5cf6;
+  background: #15131b;
 }
 
 .skill-number {
-  display: block;
-  margin-bottom: 28px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 12px;
-  color: #a855f7;
+  display: inline-block;
+  margin-bottom: 22px;
+  color: #a78bfa;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
 }
 
 .skill-card h3 {
   margin: 0 0 12px;
-  font-size: 20px;
-  font-weight: 600;
   color: #f4f4f5;
+  font-size: 1.15rem;
+  line-height: 1.4;
 }
 
 .skill-card p {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.7;
-  color: #71717a;
+  color: #a1a1aa;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .skill-card {
+    padding: 23px;
+  }
+
+  .skill-number {
+    margin-bottom: 15px;
+  }
 }
 
 
@@ -509,7 +588,6 @@
   color: #a1a1aa;
 }
 
-
 /* ================================
    CERTIFICATIONS
 ================================ */
@@ -595,7 +673,6 @@
   line-height: 1.8;
 }
 
-
 /* ================================
    CERTIFICATE LIST
 ================================ */
@@ -610,7 +687,6 @@
   border-top: 1px solid #27272a;
 }
 
-/* Regular links inside the Besant certificate list */
 .certificate-list a:not(.view-certificates-btn) {
   color: #a1a1aa;
   text-decoration: none;
@@ -621,7 +697,6 @@
 .certificate-list a:not(.view-certificates-btn):hover {
   color: #c084fc;
 }
-
 
 /* ================================
    CERTIFICATE BUTTONS
@@ -652,7 +727,6 @@
     border-color 0.25s ease;
 }
 
-/* Keep button text white, including Oracle buttons */
 .certificate-list a.view-certificates-btn {
   color: #ffffff;
 }
@@ -665,40 +739,71 @@
   transform: translateY(-2px);
 }
 
-
 /* ================================
-   CONTACT
+   CONTACT SECTION
 ================================ */
 
+/*
+  IMPORTANT:
+  The section itself is a normal centered container.
+  The TWO-COLUMN GRID belongs to .contact-layout.
+  This prevents both boxes from occupying only the
+  first column and leaving the right side empty.
+*/
+
 .contact-section {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 32px 100px;
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 65px;
+  box-sizing: border-box;
   border-top: 1px solid #18181b;
 }
 
-.contact-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 48px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  align-items: start;
+  box-sizing: border-box;
 }
 
-.contact-content > p {
-  max-width: 560px;
-  margin: 0 0 32px;
-  color: #a1a1aa;
-  font-size: 17px;
-  line-height: 1.8;
+.contact-left,
+.contact-right {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
+
+.contact-left .section-heading {
+  margin-bottom: 32px;
+}
+
+.contact-left .section-heading h2 {
+  max-width: 100%;
+}
+
+.contact-intro {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 24px;
+  color: #a1a1aa;
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Left contact information card */
 
 .contact-card {
   width: 100%;
-  max-width: 520px;
+  max-width: 100%;
+  min-width: 0;
   padding: 34px;
+  margin: 0;
   box-sizing: border-box;
   background: #111114;
   border: 1px solid #27272a;
@@ -724,6 +829,7 @@
 }
 
 .contact-item {
+  min-width: 0;
   padding: 18px 0;
   border-bottom: 1px solid #27272a;
 }
@@ -746,6 +852,8 @@
   color: #e4e4e7;
   text-decoration: none;
   font-size: 15px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   transition: color 0.25s ease;
 }
 
@@ -753,6 +861,109 @@
   color: #c084fc;
 }
 
+/* Right contact form */
+
+.contact-form {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 30px;
+  margin: 0;
+  box-sizing: border-box;
+  background: #111114;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 20px;
+  min-width: 0;
+}
+
+.form-field label {
+  color: #d4d4d8;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form-field input,
+.form-field textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  box-sizing: border-box;
+  border: 1px solid #27272a;
+  border-radius: 7px;
+  outline: none;
+  background: #09090b;
+  color: #f4f4f5;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.25s ease;
+}
+
+.form-field textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #71717a;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #a855f7;
+}
+
+.contact-submit-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 20px;
+  border: 1px solid #a855f7;
+  border-radius: 7px;
+  background: #a855f7;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-submit-btn:hover:not(:disabled) {
+  background: #9333ea;
+  transform: translateY(-2px);
+}
+
+.contact-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.form-status.success {
+  color: #86efac;
+}
+
+.form-status.error {
+  color: #fca5a5;
+}
 
 /* ================================
    FOOTER
@@ -766,7 +977,6 @@
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
 }
-
 
 /* ================================
    TABLET
@@ -791,23 +1001,31 @@
 
   .about {
     grid-template-columns: 1fr;
-    gap: 45px;
+    gap: 35px;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  .contact-section {
-    grid-template-columns: 1fr;
-    gap: 50px;
+  /* Contact stays in two columns until mobile breakpoint */
+  .contact-layout {
+    gap: 28px;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 
   .contact-card {
-    max-width: 100%;
+    padding: 25px;
+  }
+
+  .contact-form {
+    padding: 24px;
+  }
+
+  .contact-left .section-heading h2 {
+    font-size: clamp(32px, 4vw, 42px);
   }
 }
-
 
 /* ================================
    MOBILE NAVIGATION & LAYOUT
@@ -946,7 +1164,30 @@
   }
 
   .about {
-    padding: 65px 20px 35px;
+    padding: 65px 20px 45px;
+    gap: 30px;
+  }
+
+  .about-intro .about-photo {
+    margin-left: 0;
+    max-width: 320px;
+  }
+
+  .about-cards {
+    gap: 16px;
+  }
+
+  .about-card {
+    padding: 24px;
+    border-radius: 8px;
+  }
+
+  .about-card h3 {
+    font-size: 19px;
+  }
+
+  .about-card p {
+    font-size: 14px;
   }
 
   .skills-section,
@@ -962,8 +1203,51 @@
     grid-template-columns: 1fr;
   }
 
+  /* Contact: full-width centered container, vertically stacked */
   .contact-section {
-    padding: 70px 20px 90px;
+    width: 100%;
+    padding: 65px 20px 80px;
+  }
+
+  .contact-layout {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .contact-left,
+  .contact-right {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contact-left .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .contact-left .section-heading h2 {
+    font-size: 38px;
+  }
+
+  .contact-intro {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px;
+  }
+
+  .contact-item a {
+    font-size: 14px;
   }
 
   .section-heading h2 {
@@ -995,19 +1279,6 @@
     font-size: 23px;
   }
 
-  .contact-content > p {
-    font-size: 15px;
-  }
-
-  .contact-card {
-    padding: 25px;
-  }
-
-  .contact-item a {
-    font-size: 14px;
-    word-break: break-word;
-  }
-
   .footer {
     padding: 25px 20px;
   }
@@ -1020,7 +1291,6 @@
     align-items: stretch;
   }
 }
-
 
 /* ================================
    SMALL MOBILE
@@ -1036,6 +1306,20 @@
   }
 
   .section-heading h2 {
+    font-size: 34px;
+  }
+
+  .contact-section {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .contact-card,
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-left .section-heading h2 {
     font-size: 34px;
   }
 }

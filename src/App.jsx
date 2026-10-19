@@ -1,5 +1,5 @@
-
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./App.css";
 
 function App() {
@@ -9,8 +9,67 @@ function App() {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+  const [formData, setFormData] = useState({
+  from_name: "",
+  from_email: "",
+  subject: "",
+  message: "",
+});
 
-  return (
+const [sending, setSending] = useState(false);
+const [formStatus, setFormStatus] = useState({
+  type: "",
+  text: "",
+});
+
+
+const handleFormChange = (e) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setSending(true);
+  setFormStatus({ type: "", text: "" });
+
+  try {
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      formData,
+      {
+        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      }
+    );
+
+    setFormStatus({
+      type: "success",
+      text: "Message sent successfully! Thank you for reaching out.",
+    });
+
+    setFormData({
+      from_name: "",
+      from_email: "",
+      subject: "",
+      message: "",
+    });
+  } catch (error) {
+    console.error("EmailJS error:", error);
+
+    setFormStatus({
+      type: "error",
+      text: "Sorry, your message could not be sent. Please try again or email me directly.",
+    });
+  } finally {
+    setSending(false);
+  }
+};
+
+return (
+
     <div className="portfolio">
       {/* Navbar */}
       <nav className="navbar">
@@ -100,31 +159,55 @@ function App() {
         </div>
       </section>
 
+      
+     
       {/* About Section */}
       <section id="about" className="about">
-        <div className="section-heading">
-          <p>01 / ABOUT</p>
+        <div className="about-intro">
+          <div className="section-heading">
+            <p>01 / ABOUT</p>
 
-          <h2>
-            Turning ideas into <span>working solutions.</span>
-          </h2>
+            <h2>
+              Turning ideas into <span>working solutions.</span>
+            </h2>
+          </div>
+
+          <div className="about-photo">
+            <img src="/mysha.png" alt="Mysha Falaq" />
+          </div>
         </div>
 
-        <div className="about-content">
-          <p>
-            I'm a B.Tech graduate in Electronics & Communication Engineering
-            with hands-on experience in Java, SQL, web technologies, AI, IoT,
-            and software development.
-          </p>
+        <div className="about-cards">
+          <article className="about-card">
+            <h3>Who I Am</h3>
+            <p>
+              I'm a B.Tech graduate in Electronics & Communication
+              Engineering with an interest in software development,
+              problem-solving, and learning new technologies.
+            </p>
+          </article>
 
-          <p>
-            I enjoy building practical applications, solving technical
-            problems, and continuously learning new technologies across
-            software development and emerging engineering domains.
-          </p>
+          <article className="about-card">
+            <h3>What I Do</h3>
+            <p>
+              I build practical applications using Java, Spring Boot,
+              React, SQL, and web technologies, while exploring AI,
+              IoT, and DevOps tools.
+            </p>
+          </article>
+
+          <article className="about-card">
+            <h3>My Goal</h3>
+            <p>
+              I'm looking forward to starting my career in software
+              development, strengthening my technical skills, and
+              contributing to useful, user-friendly applications.
+            </p>
+          </article>
         </div>
       </section>
 
+      
       {/* Skills Section */}
       <section id="skills" className="skills-section">
         <div className="section-heading">
@@ -136,53 +219,41 @@ function App() {
         </div>
 
         <div className="skills-grid">
-          <div className="skill-card">
+          <article className="skill-card">
             <span className="skill-number">01</span>
             <h3>Java</h3>
-            <p>Core Java, OOP, Collections and problem solving.</p>
-          </div>
+            <p>Core Java, OOP, Collections and DSA.</p>
+          </article>
 
-          <div className="skill-card">
+          <article className="skill-card">
             <span className="skill-number">02</span>
-            <h3>Spring Boot</h3>
-            <p>REST APIs, Spring Security, JPA and backend development.</p>
-          </div>
+            <h3>Backend Development</h3>
+            <p>Spring Boot, REST APIs, JPA and Spring Security.</p>
+          </article>
 
-          <div className="skill-card">
+          <article className="skill-card">
             <span className="skill-number">03</span>
-            <h3>SQL / MySQL</h3>
-            <p>Database design, queries, joins and data management.</p>
-          </div>
+            <h3>Frontend Development</h3>
+            <p>React, JavaScript, HTML, CSS and Bootstrap.</p>
+          </article>
 
-          <div className="skill-card">
+          <article className="skill-card">
             <span className="skill-number">04</span>
-            <h3>React</h3>
-            <p>Component-based frontend development with React and Vite.</p>
-          </div>
+            <h3>Database</h3>
+            <p>SQL, MySQL, queries, joins and CRUD operations.</p>
+          </article>
 
-          <div className="skill-card">
+          <article className="skill-card">
             <span className="skill-number">05</span>
-            <h3>Web Technologies</h3>
-            <p>HTML, CSS, JavaScript and responsive web development.</p>
-          </div>
+            <h3>DevOps & Cloud</h3>
+            <p>Git, GitHub, Linux, Docker, Jenkins, AWS and EC2.</p>
+          </article>
 
-          <div className="skill-card">
+          <article className="skill-card">
             <span className="skill-number">06</span>
-            <h3>DevOps</h3>
-            <p>Git, GitHub, Linux, Docker and Jenkins CI/CD.</p>
-          </div>
-
-          <div className="skill-card">
-            <span className="skill-number">07</span>
-            <h3>AWS</h3>
-            <p>Cloud fundamentals and application deployment using EC2.</p>
-          </div>
-
-          <div className="skill-card">
-            <span className="skill-number">08</span>
             <h3>AI & IoT</h3>
-            <p>Python, YOLO, OpenCV, ESP32 and IoT-based solutions.</p>
-          </div>
+            <p>Python, YOLO, OpenCV, ESP32 and IoT solutions.</p>
+          </article>
         </div>
       </section>
 
@@ -498,63 +569,141 @@ function App() {
         </div>
       </section>
 
+      
       {/* Contact Section */}
       <section id="contact" className="contact-section">
-        <div className="section-heading">
-          <p>05 / CONTACT</p>
+        <div className="contact-layout">
+          {/* Left Column */}
+          <div className="contact-left">
+            <div className="section-heading">
+              <p>05 / CONTACT</p>
+              <h2>
+                Let's build something <span>useful.</span>
+              </h2>
+            </div>
 
-          <h2>
-            Let's build something <span>useful.</span>
-          </h2>
-        </div>
+            <div className="contact-card">
+              <p className="contact-card-label">GET IN TOUCH</p>
 
-        <div className="contact-content">
-          <p>
-            I'm currently open to entry-level opportunities in Java,
-            full-stack development and software engineering.
-          </p>
+              <div className="contact-item">
+                <span>EMAIL</span>
+                <a href="mailto:myshafalaq@gmail.com">
+                  myshafalaq@gmail.com
+                </a>
+              </div>
 
-          <div className="contact-card">
-            <p className="contact-card-label">
-              GET IN TOUCH
+              <div className="contact-item">
+                <span>GITHUB</span>
+                <a
+                  href="https://github.com/Myshafalaq-max"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub →
+                </a>
+              </div>
+
+              <div className="contact-item">
+                <span>LINKEDIN</span>
+                <a
+                  href="https://www.linkedin.com/in/myshafalaq"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="contact-right">
+            <p className="contact-intro">
+              I'm currently open to entry-level opportunities in Java,
+              full-stack development and software engineering.
             </p>
 
-            <div className="contact-item">
-              <span>EMAIL</span>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-field">
+                <label htmlFor="from_name">Full Name</label>
+                <input
+                  id="from_name"
+                  name="from_name"
+                  type="text"
+                  placeholder="Enter your name"
+                  value={formData.from_name}
+                  onChange={handleFormChange}
+                  required
+                  maxLength={100}
+                />
+              </div>
 
-              <a href="mailto:myshafalaq@gmail.com">
-                myshafalaq@gmail.com
-              </a>
-            </div>
+              <div className="form-field">
+                <label htmlFor="from_email">Email Address</label>
+                <input
+                  id="from_email"
+                  name="from_email"
+                  type="email"
+                  placeholder="you@example.com"
+                  value={formData.from_email}
+                  onChange={handleFormChange}
+                  required
+                  maxLength={254}
+                />
+              </div>
 
-            <div className="contact-item">
-              <span>GITHUB</span>
+              <div className="form-field">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  placeholder="Job opportunity / Project inquiry"
+                  value={formData.subject}
+                  onChange={handleFormChange}
+                  required
+                  maxLength={150}
+                />
+              </div>
 
-              <a
-                href="https://github.com/Myshafalaq-max"
-                target="_blank"
-                rel="noreferrer"
+              <div className="form-field">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Write your message..."
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  required
+                  rows={5}
+                  maxLength={5000}
+                />
+              </div>
+
+              <button
+                className="contact-submit-btn"
+                type="submit"
+                disabled={sending}
               >
-                GitHub →
-              </a>
-            </div>
+                {sending ? "Sending..." : "Send Message →"}
+              </button>
 
-            <div className="contact-item">
-              <span>LINKEDIN</span>
-
-              <a
-                href="https://www.linkedin.com/in/myshafalaq"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn →
-              </a>
-            </div>
+              {formStatus.text && (
+                <p
+                  className={`form-status ${formStatus.type}`}
+                  role="status"
+                  aria-live="polite"
+                >
+                  {formStatus.text}
+                </p>
+              )}
+            </form>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      
+            {/* Footer */}
       <footer className="footer">
         © 2026 Mysha Falaq.E · Built with React
       </footer>
